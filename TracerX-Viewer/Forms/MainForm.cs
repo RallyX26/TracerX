@@ -1495,7 +1495,7 @@ namespace TracerX
 
         private void BrowseForFile(string initialDir)
         {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            System.Windows.Forms.OpenFileDialog dlg = new System.Windows.Forms.OpenFileDialog();
 
             if (initialDir != null && initialDir != string.Empty && Directory.Exists(initialDir))
                 dlg.InitialDirectory = initialDir;
@@ -1508,7 +1508,7 @@ namespace TracerX
             dlg.Multiselect = false;
             dlg.Title = Application.ProductName;
 
-            if (dlg.ShowDialog() == true)
+            if (dlg.ShowDialog() == DialogResult.OK)
             {
                 Settings.Default.OpenDir = Path.GetDirectoryName(dlg.FileName);
                 StartReading(dlg.FileName, null);
